@@ -22,6 +22,8 @@ public class FlowDriver {
 		job.setReducerClass(FlowReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(FlowBean.class);
+		job.setNumReduceTasks(3);
+		job.setPartitionerClass(FlowPationer.class);
 		FileInputFormat.setInputPaths(job, new Path("hdfs://192.168.21.128:9000/flow"));
 		FileOutputFormat.setOutputPath(job, new Path("hdfs://192.168.21.128:9000/flow/result"));
 		job.waitForCompletion(true);

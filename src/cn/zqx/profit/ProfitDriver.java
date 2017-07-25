@@ -20,6 +20,7 @@ public class ProfitDriver {
 		job.setReducerClass(ProfitReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
+		job.setNumReduceTasks(2);
 		FileInputFormat.setInputPaths(job, new Path("hdfs://192.168.21.128:9000/profit"));
 		FileOutputFormat.setOutputPath(job, new Path("hdfs://192.168.21.128:9000/profit/result"));
 		job.waitForCompletion(true);
