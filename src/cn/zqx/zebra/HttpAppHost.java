@@ -6,25 +6,26 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.Writable;
 
-public class HttpAppHost implements Writable{
+public class HttpAppHost implements Writable {
 	private String reportTime;
-    private String cellid;
-    private int appType;
-    private int appSubtype;
-    private String userIP;
-    private int userPort;
-    private String appServerIP;
-    private int appServerPort;
-    private String host;
-    private int attempts;
-    private int accepts;
-    private long trafficUL;
-    private long trafficDL;
-    private long retranUL;
-    private long retranDL;
-    private long transDelay;
-    
-    public HttpAppHost(){}
+	private String cellid;
+	private int appType;
+	private int appSubtype;
+	private String userIP;
+	private int userPort;
+	private String appServerIP;
+	private int appServerPort;
+	private String host;
+	private int attempts;
+	private int accepts;
+	private long trafficUL;
+	private long trafficDL;
+	private long retranUL;
+	private long retranDL;
+	private long transDelay;
+
+	public HttpAppHost() {
+	}
 
 	public String getReportTime() {
 		return reportTime;
@@ -181,28 +182,28 @@ public class HttpAppHost implements Writable{
 		out.writeLong(retranUL);
 		out.writeLong(retranDL);
 		out.writeLong(transDelay);
-		
+
 	}
 
 	@Override
 	public void readFields(DataInput in) throws IOException {
-		this.reportTime=in.readUTF();
-		this.cellid=in.readUTF();
-		this.appType=in.readInt();
-		this.appSubtype=in.readInt();
-		this.userIP=in.readUTF();
-		this.userPort=in.readInt();
-		this.appServerIP=in.readUTF();
-		this.appServerPort=in.readInt();
-		this.host=in.readUTF();
-		this.attempts=in.readInt();
-		this.accepts=in.readInt();
-		this.trafficUL=in.readLong();
-		this.trafficDL=in.readLong();
-		this.retranUL=in.readLong();
-		this.retranDL=in.readLong();
-		this.transDelay=in.readLong();
-		
+		this.reportTime = in.readUTF();
+		this.cellid = in.readUTF();
+		this.appType = in.readInt();
+		this.appSubtype = in.readInt();
+		this.userIP = in.readUTF();
+		this.userPort = in.readInt();
+		this.appServerIP = in.readUTF();
+		this.appServerPort = in.readInt();
+		this.host = in.readUTF();
+		this.attempts = in.readInt();
+		this.accepts = in.readInt();
+		this.trafficUL = in.readLong();
+		this.trafficDL = in.readLong();
+		this.retranUL = in.readLong();
+		this.retranDL = in.readLong();
+		this.transDelay = in.readLong();
+
 	}
-    
+
 }

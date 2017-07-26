@@ -16,14 +16,14 @@ import org.apache.hadoop.mapreduce.Reducer;
  * 1.对于MR，reducer组件可以单独工作，但是必须依赖mapper组件
  * 2.引入reducer组件之后，输出的结果文件就是reducer组件的输出结果
  */
-public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
+public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 	@Override
-	protected void reduce(Text key, Iterable<IntWritable> values, Reducer<Text, IntWritable, Text, IntWritable>.Context context)
-			throws IOException, InterruptedException {
+	protected void reduce(Text key, Iterable<IntWritable> values,
+			Reducer<Text, IntWritable, Text, IntWritable>.Context context) throws IOException, InterruptedException {
 		int result = 0;
-		for(IntWritable value:values){
-			//IntWritable转基本数据类型:调用get方法
-			result = result+value.get();
+		for (IntWritable value : values) {
+			// IntWritable转基本数据类型:调用get方法
+			result = result + value.get();
 		}
 		context.write(key, new IntWritable(result));
 	}

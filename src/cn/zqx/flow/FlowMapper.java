@@ -7,7 +7,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class FlowMapper extends Mapper<LongWritable, Text, Text, FlowBean>{
+public class FlowMapper extends Mapper<LongWritable, Text, Text, FlowBean> {
 	@Override
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, FlowBean>.Context context)
 			throws IOException, InterruptedException {

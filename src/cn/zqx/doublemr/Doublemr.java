@@ -1,4 +1,4 @@
-package cn.zqx.sort;
+package cn.zqx.doublemr;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -6,48 +6,41 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.WritableComparable;
 
-public class SortBean implements WritableComparable<SortBean> {
+public class Doublemr implements WritableComparable<Doublemr>{
 	private String name;
-	private int score;
-
+	private int profit;
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public int getScore() {
-		return score;
+	public int getProfit() {
+		return profit;
 	}
-
-	public void setScore(int score) {
-		this.score = score;
+	public void setProfit(int profit) {
+		this.profit = profit;
 	}
-
 	@Override
 	public String toString() {
-		return "SortBean [name=" + name + ", score=" + score + "]";
+		return name + " " + profit;
 	}
-
 	@Override
 	public void write(DataOutput out) throws IOException {
 		out.writeUTF(name);
-		out.writeInt(score);
-
+		out.writeInt(profit);
+		
 	}
-
 	@Override
 	public void readFields(DataInput in) throws IOException {
 		this.name = in.readUTF();
-		this.score = in.readInt();
-
+		this.profit = in.readInt();
+		
 	}
-
 	@Override
-	public int compareTo(SortBean s) {
-		return s.score - this.score;
+	public int compareTo(Doublemr o) {
+		return this.profit-o.profit;
 	}
-
+	
+	
 }

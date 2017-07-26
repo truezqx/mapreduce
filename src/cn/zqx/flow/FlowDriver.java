@@ -10,7 +10,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import cn.zqx.distinct.DistinctReducer;
 
-
 public class FlowDriver {
 
 	public static void main(String[] args) throws Exception {

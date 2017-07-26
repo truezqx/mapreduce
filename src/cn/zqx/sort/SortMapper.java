@@ -7,7 +7,7 @@ import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class SortMapper extends Mapper<LongWritable, Text, SortBean, NullWritable>{
+public class SortMapper extends Mapper<LongWritable, Text, SortBean, NullWritable> {
 	@Override
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, SortBean, NullWritable>.Context context)
 			throws IOException, InterruptedException {
