@@ -18,6 +18,7 @@ public class MaxReducer extends Reducer<LongWritable, LongWritable, LongWritable
 				result = value.get();
 			}
 		}
+		
 		context.write(key, new LongWritable(result));
 	}
 }
