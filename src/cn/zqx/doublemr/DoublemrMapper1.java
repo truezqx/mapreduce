@@ -17,5 +17,6 @@ public class DoublemrMapper1 extends Mapper<LongWritable, Text, Text, Doublemr>{
 		dm.setName(name);
 		dm.setProfit(Integer.parseInt(line.split(" ")[2])-Integer.parseInt(line.split(" ")[3]));
 		context.write(new Text(name), dm);
+		
 	}
 }
